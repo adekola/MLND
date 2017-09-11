@@ -13260,7 +13260,7 @@ iIiIrpEOUEREREREdI10gCIiIiIiomukAxQREREREV3jvzOZ8ZedygH2AAAAAElFTkSuQmCC
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
 Maximum Depth = 3</p>
-<p>As more points are added, the training score decreases since the model stops being underfitted. The testing curve experiences an upward trajectory as the test points increase since the model starts to generalize better and is more able to predict well on previously unseen data. The general trend on this graph is that the training and testing curves begin to converge and in this particular case, more training data wouldn't particularly benefit the model since the training and testing curves are close to convergence already.</p>
+<p>As more points are added, the training score decreases since the model stops being overfitted and can no longer explain the variance in the additional training data. The testing curve experiences an upward trajectory as the number of test points increase since the model starts to generalize better and is more able to predict well on previously unseen data. The general trend on this graph is that the training and testing curves begin to converge and in this particular case, more training data wouldn't particularly benefit the model since the training and testing curves are close to convergence already.</p>
 
 </div>
 </div>
@@ -13803,6 +13803,8 @@ SGAo6YmISGD8P9QnIoLJkX8rAAAAAElFTkSuQmCC
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <p>Grid search is a systematic way of working through multiple combinations of parameters for a model, cross-validating as it goes on so as to determine which parameter values yield the optimal performance.</p>
+<p>Gridsearch tests all parameter combinations exhaustively on the validation/test set and then selects the parameter combination which yields the best results. It works by constructing and evaluating one model for each combination of parameter values. Cross validation is then used to evaluate each individual model.</p>
+<p>GridSearchCV uses an exhaustive search technique to arrive at an optimal combination of hyper parameters.</p>
 
 </div>
 </div>
@@ -13824,8 +13826,8 @@ SGAo6YmISGD8P9QnIoLJkX8rAAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
-K-fold cross-validation involves using several bins of data consecutively as test data while traniing on the rest and subsequently taking the average performance of k-tests.</p>
-<p>Without k-fold cross validation, it is ineveitable to have a biaed model as the training vs test is done only with 2 sections of data which may have an unequal spread of data. Using grid search with k-fold validation removes this unintentional tendency towards bias as it randomizes the data being used for training and test.</p>
+K-fold cross-validation involves splitting the dataset into K equally sized bins of which one bin per time is retained as validation data while the rest are used for training. The cross-validation process is repeated K times with each bin used exactly once as the validation data. The K results from the bins/folds are then averaged to produce a single estimate.</p>
+<p>K-fold cross-validation provides the benefit to grid search that it enables the discovery of the best score over a several testing sets, thus increasing the chances of finding an optimal model which generalizes well.</p>
 
 </div>
 </div>
@@ -14052,6 +14054,7 @@ Predicted selling price for Client 3&#39;s home: $892,850.00
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <p>The predicted prices are indeed in line with my intuitions regarding the data early on in the data exploration phase. The most expensive house ($892,850.00) has the most rooms (8) and is in a neighbourhood with the least LSTAT(3%) and PTRATIO (12-to-1) figures. Correspondingly, the cheapest house (207,282.35) has the least roooms (4) and is in a neighbourhood with the highest LSTAT(32) and PTRATIO (22-to-1) figures.</p>
+<p>For client 1, the predicted price of 426,000 falls around the mean price of 454,342.94 and median price 438,900.00 which sits well with the fact that the parameters (RM, LSTAT and PTRATIO) are in the mean &amp; median range of the dataset.</p>
 
 </div>
 </div>
